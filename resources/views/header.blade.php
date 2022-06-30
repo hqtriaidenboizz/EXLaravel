@@ -91,6 +91,8 @@
                 <nav class="main-menu">
                     <ul class="l-inline ov">
                         <li><a href="/">Trang chủ</a></li>
+                        <li><a href="showadmin">Admin</a></li>
+
                         <li><a href="#">Sản phẩm</a>
                             <ul class="sub-menu">
                                 @foreach($loai_sp as $lsp)
@@ -98,6 +100,7 @@
                                 @endforeach
                             </ul>
                         </li>
+                        
                         <li><a href="about.html">Giới thiệu</a></li>
                         <li><a href="contacts.html">Liên hệ</a></li>
                     </ul>

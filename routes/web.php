@@ -122,7 +122,7 @@ Route::get('/',[PageController::class, 'getIndex']);
 Route::get('/about.html',[PageController::class, 'getAbout']);
 Route::get('/contact.html',[PageController::class, 'getContact']);
 Route::get('/type/{id}', [PageController::class , 'getLoaiSp']);
-
+Route::get('/detail/{id}',[PageController::class,'getDetail']);
 
 
 // admin

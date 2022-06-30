@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use Illuminate\Http\Facades\Date;
 use App\Models\Slide;
 use App\Models\Product;
 use App\Models\ProductType;
+use App\Models\Comment;
 class PageController extends Controller
 {
     public function getIndex()
@@ -90,5 +91,11 @@ class PageController extends Controller
         $product =product::find($id);
         $product->delete();
         return redirect('/showadmin');
+}
+public function getDetail(Request $request){
+    $sanpham = Product::where('id',$request->id)->first();
+    $splienquan=Product::where('id','<>',$sanpham->id,'and','id_type','=',$sanpham->id_type,)->paginate(3);
+    $comments=Comment::where('id_product',$request->id)->get();
+    return view('page.detailPage',compact('sanpham','splienquan','comments'));
 }
 }
